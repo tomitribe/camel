@@ -851,6 +851,18 @@ public class JmsComponent extends HeaderFilterStrategyComponent implements Appli
         getConfiguration().setTransferException(transferException);
     }
 
+    public boolean isObjectMessageEnabled() {
+        return getConfiguration().isObjectMessageEnabled();
+    }
+
+    /**
+     * Whether to enable sending and receiving JMS ObjectMessage. Disabled by default for security reasons; see
+     * {@link JmsConfiguration#setObjectMessageEnabled(boolean)}.
+     */
+    public void setObjectMessageEnabled(boolean objectMessageEnabled) {
+        getConfiguration().setObjectMessageEnabled(objectMessageEnabled);
+    }
+
     /**
      * If enabled and you are using Request Reply messaging (InOut) and an Exchange failed with a SOAP fault (not exception) on the consumer side,
      * then the fault flag on {@link org.apache.camel.Message#isFault()} will be send back in the response as a JMS header with the key

@@ -333,6 +333,14 @@ public class JmsConfiguration implements Cloneable {
                     + " You must enable this option on both the producer and consumer side, so Camel knows the payloads is an Exchange and not a regular payload.")
     private boolean transferExchange;
     @UriParam(label = "advanced",
+            description = "Whether to enable sending and receiving JMS ObjectMessage."
+                    + " By default this is disabled because Java object serialization is a known source of security"
+                    + " vulnerabilities. Enable this option only if you trust the source of the messages and need"
+                    + " to send or receive Java serialized objects via JMS. When disabled, Camel will refuse to"
+                    + " create or read JMS ObjectMessage instances. Options that rely on ObjectMessage internally"
+                    + " (such as transferExchange and transferException) require this option to be enabled.")
+    private boolean objectMessageEnabled;
+    @UriParam(label = "advanced",
             description = "Controls whether or not to include serialized headers."
                 + " Applies only when {@code transferExchange} is {@code true}."
                 + " This requires that the objects are serializable. Camel will exclude any non-serializable objects and log it at WARN level.")
@@ -1904,6 +1912,21 @@ public class JmsConfiguration implements Cloneable {
      */
     public void setTransferException(boolean transferException) {
         this.transferException = transferException;
+    }
+
+    public boolean isObjectMessageEnabled() {
+        return objectMessageEnabled;
+    }
+
+    /**
+     * Whether to enable sending and receiving JMS ObjectMessage. By default this is disabled because Java object
+     * serialization is a known source of security vulnerabilities. Enable this option only if you trust the source of
+     * the messages and need to send or receive Java serialized objects via JMS. When disabled, Camel will refuse to
+     * create or read JMS ObjectMessage instances. Options that rely on ObjectMessage internally (such as
+     * transferExchange and transferException) require this option to be enabled.
+     */
+    public void setObjectMessageEnabled(boolean objectMessageEnabled) {
+        this.objectMessageEnabled = objectMessageEnabled;
     }
 
     public boolean isTransferFault() {

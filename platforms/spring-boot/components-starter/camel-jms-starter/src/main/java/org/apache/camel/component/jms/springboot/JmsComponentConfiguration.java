@@ -423,6 +423,12 @@ public class JmsComponentConfiguration
      */
     private Boolean transferException = false;
     /**
+     * Whether to enable sending and receiving JMS ObjectMessage. Disabled by
+     * default for security reasons; see
+     * JmsConfiguration#setObjectMessageEnabled(boolean).
+     */
+    private Boolean objectMessageEnabled = false;
+    /**
      * If enabled and you are using Request Reply messaging (InOut) and an
      * Exchange failed with a SOAP fault (not exception) on the consumer side,
      * then the fault flag on org.apache.camel.Message#isFault() will be send
@@ -1084,6 +1090,14 @@ public class JmsComponentConfiguration
 
     public void setTransferException(Boolean transferException) {
         this.transferException = transferException;
+    }
+
+    public Boolean getObjectMessageEnabled() {
+        return objectMessageEnabled;
+    }
+
+    public void setObjectMessageEnabled(Boolean objectMessageEnabled) {
+        this.objectMessageEnabled = objectMessageEnabled;
     }
 
     public Boolean getTransferFault() {
@@ -1759,6 +1773,17 @@ public class JmsComponentConfiguration
          * org.apache.camel.RuntimeCamelException when returned to the producer.
          */
         private Boolean transferException = false;
+        /**
+         * Whether to enable sending and receiving JMS ObjectMessage. By default
+         * this is disabled because Java object serialization is a known source
+         * of security vulnerabilities. Enable this option only if you trust the
+         * source of the messages and need to send or receive Java serialized
+         * objects via JMS. When disabled, Camel will refuse to create or read
+         * JMS ObjectMessage instances. Options that rely on ObjectMessage
+         * internally (such as transferExchange and transferException) require
+         * this option to be enabled.
+         */
+        private Boolean objectMessageEnabled = false;
         /**
          * If enabled and you are using Request Reply messaging (InOut) and an
          * Exchange failed with a SOAP fault (not exception) on the consumer
@@ -2543,6 +2568,14 @@ public class JmsComponentConfiguration
 
         public void setTransferException(Boolean transferException) {
             this.transferException = transferException;
+        }
+
+        public Boolean getObjectMessageEnabled() {
+            return objectMessageEnabled;
+        }
+
+        public void setObjectMessageEnabled(Boolean objectMessageEnabled) {
+            this.objectMessageEnabled = objectMessageEnabled;
         }
 
         public Boolean getTransferFault() {
