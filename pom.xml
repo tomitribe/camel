@@ -157,7 +157,7 @@
     <module>platforms</module>
     <module>connectors</module>
     <module>tests</module>
-    <module>examples</module>
+    <!--<module>examples</module>-->
   </modules>
 
   <scm>
