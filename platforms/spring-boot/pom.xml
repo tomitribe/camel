@@ -21,7 +21,7 @@
     <parent>
         <artifactId>camel</artifactId>
         <groupId>org.apache.camel</groupId>
-        <version>2.25.5-SNAPSHOT</version>
+        <version>2.25.5-TT.3-SNAPSHOT</version>
         <relativePath>../../</relativePath>
     </parent>
     <modelVersion>4.0.0</modelVersion>
@@ -32,7 +32,6 @@
 
     <modules>
         <module>spring-boot-dm</module>
-        <module>components-starter</module>
     </modules>
 
 </project>

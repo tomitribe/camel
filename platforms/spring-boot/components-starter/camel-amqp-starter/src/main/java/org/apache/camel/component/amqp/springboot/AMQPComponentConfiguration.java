@@ -410,6 +410,12 @@ public class AMQPComponentConfiguration
      */
     private Boolean transferException = false;
     /**
+     * Whether to enable sending and receiving JMS ObjectMessage. Disabled by
+     * default for security reasons; see
+     * JmsConfiguration#setObjectMessageEnabled(boolean).
+     */
+    private Boolean objectMessageEnabled = false;
+    /**
      * If enabled and you are using Request Reply messaging (InOut) and an
      * Exchange failed with a SOAP fault (not exception) on the consumer side,
      * then the fault flag on Message#isFault() will be send back in the
@@ -1072,6 +1078,14 @@ public class AMQPComponentConfiguration
 
     public void setTransferException(Boolean transferException) {
         this.transferException = transferException;
+    }
+
+    public Boolean getObjectMessageEnabled() {
+        return objectMessageEnabled;
+    }
+
+    public void setObjectMessageEnabled(Boolean objectMessageEnabled) {
+        this.objectMessageEnabled = objectMessageEnabled;
     }
 
     public Boolean getTransferFault() {

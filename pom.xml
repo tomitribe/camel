@@ -146,12 +146,18 @@
   </pluginRepositories>
 
   <modules>
-      <module>parent</module>
-      <module>etc</module>
-      <module>buildingtools</module>
-      <module>camel-core</module>
-      <module>components</module>
-      <module>tooling</module>
+    <module>parent</module>
+    <module>etc</module>
+    <module>bom</module>
+    <module>buildingtools</module>
+    <module>camel-core</module>
+    <module>components</module>
+    <module>archetypes</module>
+    <module>tooling</module>
+    <module>platforms</module>
+    <module>connectors</module>
+    <module>tests</module>
+    <module>examples</module>
   </modules>
 
   <scm>
@@ -361,8 +367,6 @@
         </property>
       </activation>
       <modules>
-        <!-- apache-camel (full distribution tarball) removed for the TT security-fork:
-             ActiveMQ consumes individual camel-core/jms/spring jars, not the distro. -->
       </modules>
     </profile>
     <profile>

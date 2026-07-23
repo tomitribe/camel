@@ -24,7 +24,7 @@
   <parent>
     <groupId>org.apache.camel</groupId>
     <artifactId>camel-parent</artifactId>
-    <version>2.25.5-SNAPSHOT</version>
+    <version>2.25.5-TT.3-SNAPSHOT</version>
     <relativePath>../parent</relativePath>
   </parent>
 
@@ -45,10 +45,6 @@
     <module>camel-example-cdi</module>
     <module>camel-example-cdi-aws-s3</module>
     <module>camel-example-cdi-cassandraql</module>
-    <module>camel-example-fhir</module>
-    <module>camel-example-fhir-auth-tx-spring-boot</module>
-    <module>camel-example-fhir-osgi</module>
-    <module>camel-example-fhir-spring-boot</module>
     <module>camel-example-cdi-kubernetes</module>
     <module>camel-example-cdi-metrics</module>
     <module>camel-example-cdi-osgi</module>
@@ -66,11 +62,9 @@
     <module>camel-example-google-pubsub</module>
     <module>camel-example-guice-jms</module>
     <module>camel-example-groovy</module>
-    <module>camel-example-grpc-kubernetes</module>
     <module>camel-example-hazelcast-kubernetes</module>
     <module>camel-example-hystrix</module>
     <module>camel-example-java8</module>
-    <module>camel-example-java8-rx</module>
     <module>camel-example-jdbc</module>
     <module>camel-example-jmx</module>
     <module>camel-example-jms-file</module>
@@ -84,7 +78,6 @@
     <module>camel-example-mybatis</module>
     <module>camel-example-netty-custom-correlation</module>
     <module>camel-example-netty-http</module>
-    <module>camel-example-olingo4-blueprint</module>
     <module>camel-example-opentracing</module>
     <module>camel-example-pojo-messaging</module>
     <module>camel-example-rabbitmq</module>
@@ -93,8 +86,6 @@
     <module>camel-example-reportincident</module>
     <module>camel-example-reportincident-wssecurity</module>
     <module>camel-example-rest-producer</module>
-    <module>camel-example-rest-swagger</module>
-    <module>camel-example-restlet-jdbc</module>
     <module>camel-example-route-throttling</module>
     <module>camel-example-scala</module>
     <module>camel-example-servlet-httpregistry-blueprint</module>
@@ -109,7 +100,6 @@
     <module>camel-example-spring-boot-activemq</module>
     <module>camel-example-spring-boot-clustered-route-controller</module>
     <module>camel-example-spring-boot-geocoder</module>
-    <module>camel-example-spring-boot-grpc</module>
     <module>camel-example-spring-boot-health-checks</module>
     <module>camel-example-spring-boot-infinispan</module>
     <module>camel-example-spring-boot-master</module>

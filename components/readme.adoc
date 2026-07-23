@@ -2,7 +2,7 @@ Components
 ^^^^^^^^^^
 
 // components: START
-Number of Components: 311 in 211 JAR artifacts (27 deprecated)
+Number of Components: 307 in 207 JAR artifacts (26 deprecated)
 
 [width="100%",cols="4,1,5",options="header"]
 |===
@@ -431,9 +431,6 @@ Number of Components: 311 in 211 JAR artifacts (27 deprecated)
 | link:camel-iota/src/main/docs/iota-component.adoc[IOTA] (camel-iota) +
 `iota:name` | 2.23 | Component for integrate IOTA DLT
 
-| link:camel-ipfs/src/main/docs/ipfs-component.adoc[IPFS] (camel-ipfs) +
-`ipfs:host:port/cmd` | 2.23 | The camel-ipfs component provides access to the Interplanetary File System (IPFS).
-
 | link:camel-irc/src/main/docs/irc-component.adoc[IRC] (camel-irc) +
 `irc:hostname:port` | 1.1 | The irc component implements an IRC (Internet Relay Chat) transport.
 
@@ -734,12 +731,6 @@ Number of Components: 311 in 211 JAR artifacts (27 deprecated)
 | link:../camel-core/src/main/docs/rest-api-component.adoc[REST API] (camel-core) +
 `rest-api:path/contextIdPattern` | 2.16 | The rest-api component is used for providing Swagger API of the REST services which has been defined using the rest-dsl in Camel.
 
-| link:camel-rest-swagger/src/main/docs/rest-swagger-component.adoc[REST Swagger] (camel-rest-swagger) +
-`rest-swagger:specificationUri#operationId` | 2.19 | An awesome REST endpoint backed by Swagger specifications.
-
-| link:camel-restlet/src/main/docs/restlet-component.adoc[Restlet] (camel-restlet) +
-`restlet:protocol:host:port/uriPattern` | 2.0 | *deprecated* Component for consuming and producing Restful resources using Restlet.
-
 | link:camel-rmi/src/main/docs/rmi-component.adoc[RMI] (camel-rmi) +
 `rmi:hostname:port/name` | 1.0 | *deprecated* The rmi component is for invoking Java RMI beans from Camel.
 
@@ -802,9 +793,6 @@ Number of Components: 311 in 211 JAR artifacts (27 deprecated)
 
 | link:camel-snmp/src/main/docs/snmp-component.adoc[SNMP] (camel-snmp) +
 `snmp:host:port` | 2.1 | The snmp component gives you the ability to poll SNMP capable devices or receiving traps.
-
-| link:camel-solr/src/main/docs/solr-component.adoc[Solr] (camel-solr) +
-`solr:url` | 2.9 | The solr component allows you to interface with an Apache Lucene Solr server.
 
 | link:camel-spark-rest/src/main/docs/spark-rest-component.adoc[Spark Rest] (camel-spark-rest) +
 `spark-rest:verb:path` | 2.14 | The spark-rest component is used for hosting REST services which has been defined using Camel rest-dsl.
@@ -1121,7 +1109,7 @@ Miscellaneous Components
 ^^^^^^^^^^^^^^^^^^^^^^^^
 
 // others: START
-Number of Miscellaneous Components: 44 in 44 JAR artifacts (13 deprecated)
+Number of Miscellaneous Components: 43 in 43 JAR artifacts (12 deprecated)
 
 [width="100%",cols="4,1,5",options="header"]
 |===
@@ -1162,8 +1150,6 @@ Number of Miscellaneous Components: 44 in 44 JAR artifacts (13 deprecated)
 | link:camel-ribbon/src/main/docs/ribbon.adoc[Ribbon] (camel-ribbon) | 2.18 | Using Netflix Ribbon for client side load balancing
 
 | link:camel-ruby/src/main/docs/ruby.adoc[Ruby] (camel-ruby) | 1.0 | *deprecated* Camel Ruby DSL
-
-| link:camel-rx/src/main/docs/rx.adoc[RX] (camel-rx) | 2.11 | *deprecated* Camel Reactive using RxJava library
 
 | link:camel-rxjava2/src/main/docs/rxjava2.adoc[Rxjava2] (camel-rxjava2) | 2.22 | RxJava2 based back-end for Camel's reactive streams component
 

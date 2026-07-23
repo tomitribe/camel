@@ -37,7 +37,7 @@ xref:jms-component.adoc[JMS] component after the destination name.
 
 
 // component options: START
-The AMQP component supports 80 options, which are listed below.
+The AMQP component supports 81 options, which are listed below.
 
 
 
@@ -100,6 +100,7 @@ The AMQP component supports 80 options, which are listed below.
 | *requestTimeoutChecker Interval* (advanced) | Configures how often Camel should check for timed out Exchanges when doing request/reply over JMS. By default Camel checks once per second. But if you must react faster when a timeout occurs, then you can lower this interval, to check more frequently. The timeout is determined by the option requestTimeout. | 1000 | long
 | *transferExchange* (advanced) | You can transfer the exchange over the wire instead of just the body and headers. The following fields are transferred: In body, Out body, Fault body, In headers, Out headers, Fault headers, exchange properties, exchange exception. This requires that the objects are serializable. Camel will exclude any non-serializable objects and log it at WARN level. You must enable this option on both the producer and consumer side, so Camel knows the payloads is an Exchange and not a regular payload. | false | boolean
 | *transferException* (advanced) | If enabled and you are using Request Reply messaging (InOut) and an Exchange failed on the consumer side, then the caused Exception will be send back in response as a javax.jms.ObjectMessage. If the client is Camel, the returned Exception is rethrown. This allows you to use Camel JMS as a bridge in your routing - for example, using persistent queues to enable robust routing. Notice that if you also have transferExchange enabled, this option takes precedence. The caught exception is required to be serializable. The original Exception on the consumer side can be wrapped in an outer exception such as org.apache.camel.RuntimeCamelException when returned to the producer. | false | boolean
+| *objectMessageEnabled* (common) | Whether to enable sending and receiving JMS ObjectMessage. Disabled by default for security reasons; see JmsConfiguration#setObjectMessageEnabled(boolean). | false | boolean
 | *transferFault* (advanced) | If enabled and you are using Request Reply messaging (InOut) and an Exchange failed with a SOAP fault (not exception) on the consumer side, then the fault flag on Message#isFault() will be send back in the response as a JMS header with the key org.apache.camel.component.jms.JmsConstants#JMS_TRANSFER_FAULT#JMS_TRANSFER_FAULT. If the client is Camel, the returned fault flag will be set on the org.apache.camel.Message#setFault(boolean). You may want to enable this when using Camel components that support faults such as SOAP based such as cxf or spring-ws. | false | boolean
 | *jmsOperations* (advanced) | Allows you to use your own implementation of the org.springframework.jms.core.JmsOperations interface. Camel uses JmsTemplate as default. Can be used for testing purpose, but not used much as stated in the spring API docs. |  | JmsOperations
 | *destinationResolver* (advanced) | A pluggable org.springframework.jms.support.destination.DestinationResolver that allows you to use your own resolver (for example, to lookup the real destination in a JNDI registry). |  | DestinationResolver
@@ -153,7 +154,7 @@ with the following path and query parameters:
 |===
 
 
-=== Query Parameters (92 parameters):
+=== Query Parameters (93 parameters):
 
 
 [width="100%",cols="2,5,^1,2",options="header"]
@@ -230,6 +231,7 @@ with the following path and query parameters:
 | *messageIdEnabled* (advanced) | When sending, specifies whether message IDs should be added. This is just an hint to the JMS broker.If the JMS provider accepts this hint, these messages must have the message ID set to null; if the provider ignores the hint, the message ID must be set to its normal unique value | true | boolean
 | *messageListenerContainer Factory* (advanced) | Registry ID of the MessageListenerContainerFactory used to determine what org.springframework.jms.listener.AbstractMessageListenerContainer to use to consume messages. Setting this will automatically set consumerType to Custom. |  | MessageListener ContainerFactory
 | *messageTimestampEnabled* (advanced) | Specifies whether timestamps should be enabled by default on sending messages. This is just an hint to the JMS broker.If the JMS provider accepts this hint, these messages must have the timestamp set to zero; if the provider ignores the hint the timestamp must be set to its normal value | true | boolean
+| *objectMessageEnabled* (advanced) | Whether to enable sending and receiving JMS ObjectMessage. By default this is disabled because Java object serialization is a known source of security vulnerabilities. Enable this option only if you trust the source of the messages and need to send or receive Java serialized objects via JMS. When disabled, Camel will refuse to create or read JMS ObjectMessage instances. Options that rely on ObjectMessage internally (such as transferExchange and transferException) require this option to be enabled. | false | boolean
 | *pubSubNoLocal* (advanced) | Specifies whether to inhibit the delivery of messages published by its own connection. | false | boolean
 | *receiveTimeout* (advanced) | The timeout for receiving messages (in milliseconds). | 1000 | long
 | *recoveryInterval* (advanced) | Specifies the interval between recovery attempts, i.e. when a connection is being refreshed, in milliseconds. The default is 5000 ms, that is, 5 seconds. | 5000 | long
@@ -269,7 +271,7 @@ When using Spring Boot make sure to use the following Maven dependency to have s
 ----
 
 
-The component supports 81 options, which are listed below.
+The component supports 82 options, which are listed below.
 
 
 
@@ -324,6 +326,7 @@ The component supports 81 options, which are listed below.
 | *camel.component.amqp.message-created-strategy* | To use the given MessageCreatedStrategy which are invoked when Camel creates new instances of javax.jms.Message objects when Camel is sending a JMS message. The option is a org.apache.camel.component.jms.MessageCreatedStrategy type. |  | String
 | *camel.component.amqp.message-id-enabled* | When sending, specifies whether message IDs should be added. This is just an hint to the JMS broker.If the JMS provider accepts this hint, these messages must have the message ID set to null; if the provider ignores the hint, the message ID must be set to its normal unique value | true | Boolean
 | *camel.component.amqp.message-timestamp-enabled* | Specifies whether timestamps should be enabled by default on sending messages. This is just an hint to the JMS broker.If the JMS provider accepts this hint, these messages must have the timestamp set to zero; if the provider ignores the hint the timestamp must be set to its normal value | true | Boolean
+| *camel.component.amqp.object-message-enabled* | Whether to enable sending and receiving JMS ObjectMessage. Disabled by default for security reasons; see JmsConfiguration#setObjectMessageEnabled(boolean). | false | Boolean
 | *camel.component.amqp.password* | Password to use with the ConnectionFactory. You can also configure username/password directly on the ConnectionFactory. |  | String
 | *camel.component.amqp.preserve-message-qos* | Set to true, if you want to send message using the QoS settings specified on the message, instead of the QoS settings on the JMS endpoint. The following three headers are considered JMSPriority, JMSDeliveryMode, and JMSExpiration. You can provide all or only some of them. If not provided, Camel will fall back to use the values from the endpoint instead. So, when using this option, the headers override the values from the endpoint. The explicitQosEnabled option, by contrast, will only use options set on the endpoint, and not values from the message header. | false | Boolean
 | *camel.component.amqp.priority* | Values greater than 1 specify the message priority when sending (where 0 is the lowest priority and 9 is the highest). The explicitQosEnabled option must also be enabled in order for this option to have any effect. | 4 | Integer
