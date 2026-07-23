@@ -35,10 +35,13 @@
 
   <modules>
       <module>camel-core-xml</module>
+      <module>camel-core-osgi</module>
       <module>camel-test</module>
       <module>camel-test-spring</module>
       <module>camel-spring</module>
       <module>camel-jms</module>
+      <module>camel-blueprint</module>
+      <module>camel-jdbc</module>
   </modules>
 
 
